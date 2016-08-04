@@ -1,0 +1,154 @@
+\documentclass[bgimage]{/Users/nychka/Home/Tex/pfuef/pfuef}  
+\nofiles
+% dehyrdrated personal version of  talkpfuef.tex from Example2
+% this version should work anywhere on laptop
+  \input{/Users/nychka/Home/Tex/talkStuff.tex}
+  \input{/Users/nychka/Home/Tex/ColorsFromR.tex}
+%  \input{/Users/nychka/Home/Tex/knitr.tex}
+  \input{/Users/nychka/Home/Tex/NychkaStuff.tex} 
+  \footertext{{\tiny D. Nychka   APPM2720 Lecture 1 }}
+  
+ \begin{document}
+ \titlebackgroundimage{BearPk.jpg} % the peak behind NCAR
+ \backgroundimage{sky.jpg} % a part of the sky from BearPk.jpg!
+%%%%%%%%%%%%%%%%% title slide
+\titleslide
+\vspace*{-.5in}
+{ \Huge
+ APPM 2720 Spring 2016  \\
+Lecture 1
+} 
+%
+\\[3.5in]
+%
+{\color{white}
+{\large  Douglas Nychka} \\
+%{\it IMAGe} \\
+National Center for Atmospheric Research\\
+\rule{\textwidth}{.02in}
+%{\it Stephan Sain } 
+ \vfill
+\includegraphics[height=.75in]{/Users/nychka/Home/Tex/IMAGe.jpg} 
+\hfill 
+ \\
+{\it \normalsize National Science Foundation}
+\hfill { \normalsize \it Spring 2016} 
+ }% end white text color 
+
+% start footers 
+  \footer3
+% beginning of first real slide. 
+
+\slide{Goal}
+
+This course will expose students to data analysis and discovery using techniques from data science.
+
+%\begin{quote}
+{\it Data Science:}  is an interdisciplinary field about processes and systems to extract knowledge or insights from data in various forms, either structured or unstructured.
+%\end{quote}
+
+\slide{Statistics is just part of this} 
+
+A classic intro stats course has things such as 
+
+- probability discrete then maybe continuous distribution
+
+- concept of sample verses population
+
+- basic statistics, eg.  mean, standard deviation and histograms
+
+- testing for the population mean and comfidence intervals 
+
+- straight line fitting 
+
+{\it All these elementary topics are designed to reinforce basic principles in statistics.}
+
+{\it But they rarely show the value for large and complex data problems!}
+
+\slide{What this course is about}
+
+- Confront a dataset based on answering a question. 
+
+- Analysis tools  and strategies used to reach an answer will be  examples of statistical concepts. 
+
+- Develop programming skill in R and related programs to look at data.
+
+- Although mathematical formulas will not be used much there still must be an strong element of logical thinking
+
+
+\slide{Some data examples}
+\includegraphics[height=3in]{pix/UBCLibrary.jpg}
+
+\slide{Used Audi A4 prices}
+\includegraphics[height=3in]{pix/A4.pdf}
+
+How do you quantify the tradeoff between older cars and 
+cheaper prices?
+
+\slide{Stock prices}
+\includegraphics[height=3in]{pix/GSMS.pdf}
+
+How well do Goldman Sachs and Morgan Stanley stocks track each other?
+
+\slide{Mary Jane Resort}
+\includegraphics[height=3in]{pix/slopeimage3.png}
+
+Where is the steepest part of a ski run?
+
+\slide{Boulder daily rainfall}
+\includegraphics[height=3in]{/Users/nychka/Home/Current_talks/AGUExtremes/pix/Boulder1.pdf}
+
+What is the probability of  rainfall in Boulder exceeding 8 cm ( about 3.2 inches) in  a day?
+
+
+\slide{Digial images: 100 Weddings} 
+\begin{minipage}{6.25in}
+\includegraphics[width=6in]{/Users/nychka/Home/Current_talks/Public/pix/wedding2.png}
+\end{minipage}
+\
+\begin{minipage}{3in}
+{The average image} \\
+\includegraphics[width=3in]{/Users/nychka/Home/Current_talks/Public/pix/wedding1.png}\\
+\Mycomment{$\over{wedding}$} 
+
+
+\hspace*{5in} {\color{black} \normalsize Credit: J. Salavon \\{\it Cabinet} 15 }
+\end{minipage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \\ \\
+ See Jason Salavon on Wikipedia
+\slide{An example of R code:}
+
+<<my-label, eval=TRUE, dev='png'>>=
+1:10
+mean(1:10)
+@
+
+\slide{Computation}
+<<my-label2, eval=TRUE, dev='png'>>=
+n<-1:50
+ e<-(1+ 1/n)^n
+ print(e)
+@
+\slide{Graphics}
+<<my-label3, eval=TRUE, dev='png', fig.width=5, fig.height=5, out.width='.5\\textwidth'>>=
+plot( n,e)
+@
+
+\slide{Thank you!}
+Questions?
+
+\vfill % this pushes what follows right to bottom margin
+% view of NCAR from the research aircraft taking off south of Boulder. 
+\includegraphics[height=3in]{/Users/nychka/Home/Tex/BoulderDI01532.jpg} 
+\\
+%  without adding the  blank line image over lays the footer!
+
+
+%----------------------------------------------------------------------
+% End of presentation.
+%----------------------------------------------------------------------
+
+
+\end{document}
+

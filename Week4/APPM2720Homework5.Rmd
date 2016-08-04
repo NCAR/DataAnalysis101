@@ -1,0 +1,38 @@
+#APPM2720 Homework 5
+
+### Due next Monday February 8, 2016
+
+The main point of this  short assignment is to complete the
+questions from the R script **RintroProgramming2.R** from 
+[Week4](http://www.image.ucar.edu/~nychka/Temp/APPM2720/Week4)
+ 
+
+Following this script create a R function to smooth a dataset
+and apply this to the AudiA4 data. Please submit your R function and also a figure that answers the following 
+question(s).
+
+- Compare smooths for price against mileage in the ````AudiA4```` data. Does this look like a straight line? Try to add several different smooths to your scatterplot on the data.
+
+###Extra credit!
+- Do the smooths change if you use a subset of years? e.g. older cars or newer cars. What does this tell you about buying this kind of car?
+
+###Notes
+- Try some different spans (averging window width) for your smoother to balance detail verses smoothness. For the temperature data spans on the order of 2 to 10 years made sense. For the mileage variable these vary on the order of 10s of thousands of miles so use a span that adjsuts to these ranges. 
+
+- The smoothed results  should make sense when plotted as points. But if your "x" values are not in increasing order the ````lines```` command can go a bit crazy joining points that are not next to each other. Here is a simple example of what I mean and the way to fix it. 
+
+```{r}
+# 50 points in [0,1] but in random order
+set.seed( 221)
+x<- runif( 50)
+y<- x - x^2  # a simple quadratic curve in x
+plot( x,y, pch=16)
+# crazy lines
+lines( x,y, col="red")
+#use of the order function 
+ix<- order(x)
+xSorted<- x[ix]
+ySorted<- y[ix]
+# nice lines
+lines( xSorted, ySorted, col="blue", lwd=3)
+```

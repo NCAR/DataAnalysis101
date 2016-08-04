@@ -1,0 +1,103 @@
+Delivered-To: nychka@ucar.edu
+Received: by 10.31.96.9 with SMTP id u9csp1247115vkb;
+        Mon, 4 Jan 2016 14:55:25 -0800 (PST)
+X-Received: by 10.140.19.231 with SMTP id 94mr57587774qgh.32.1451948125086;
+        Mon, 04 Jan 2016 14:55:25 -0800 (PST)
+Return-Path: <Jacob.Tafoya@colorado.edu>
+Received: from na01-bn1-obe.outbound.protection.outlook.com (mail-bn1bn0101.outbound.protection.outlook.com. [157.56.110.101])
+        by mx.google.com with ESMTPS id 68si21737532qge.98.2016.01.04.14.55.24
+        for <nychka@ucar.edu>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Mon, 04 Jan 2016 14:55:25 -0800 (PST)
+Received-SPF: pass (google.com: domain of Jacob.Tafoya@colorado.edu designates 157.56.110.101 as permitted sender) client-ip=157.56.110.101;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of Jacob.Tafoya@colorado.edu designates 157.56.110.101 as permitted sender) smtp.mailfrom=Jacob.Tafoya@colorado.edu;
+       dkim=pass header.i=@o365coloradoedu.onmicrosoft.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=o365coloradoedu.onmicrosoft.com; s=selector1-colorado-edu;
+ h=From:To:Date:Subject:Message-ID:Content-Type:MIME-Version;
+ bh=dThzz0Fw6Bfi585qH/5XF28VN6PU8wRvn2geOoiiyg4=;
+ b=fYRNclNQUe6q6+eRLMfxFAiMY8SDvW6UxVLzOdg9nU5sXfFYlhRZxU3KVg4mNMMBYZn9bjaar1ratT3Dm5evxgBL/34ehJdpnXhoB0AYvYdVlhSc4UgF6UEl6n08WK95BCaZgfwav4mN4lIL1MlAbY4Ax048sxOjEkwkBidObcQ=
+Received: from BY2PR03MB192.namprd03.prod.outlook.com (10.242.36.144) by
+ BY2PR03MB192.namprd03.prod.outlook.com (10.242.36.144) with Microsoft SMTP
+ Server (TLS) id 15.1.361.13; Mon, 4 Jan 2016 22:55:23 +0000
+Received: from BY2PR03MB192.namprd03.prod.outlook.com ([169.254.9.169]) by
+ BY2PR03MB192.namprd03.prod.outlook.com ([169.254.9.169]) with mapi id
+ 15.01.0361.006; Mon, 4 Jan 2016 22:55:23 +0000
+From: Jacob David Tafoya <Jacob.Tafoya@Colorado.EDU>
+To: Doug Nychka <nychka@ucar.edu>
+Subject: RE: setting up a class web page for APPM2720
+Thread-Topic: setting up a class web page for APPM2720
+Thread-Index: AQHRRz4g0rt8ln/yNkqTFUDtgVffMZ7r7n1ggAAE5YCAAAJSMA==
+Date: Mon, 4 Jan 2016 22:55:22 +0000
+Message-ID: <BY2PR03MB192B26AEC6E1A4596C2C246F8F20@BY2PR03MB192.namprd03.prod.outlook.com>
+References: <568AF02D.5000409@ucar.edu>
+ <BY2PR03MB1928572FECCB1E572A1E5EFF8F20@BY2PR03MB192.namprd03.prod.outlook.com>
+ <568AF4E7.7090801@ucar.edu>
+In-Reply-To: <568AF4E7.7090801@ucar.edu>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=Jacob.Tafoya@Colorado.EDU; 
+x-originating-ip: [128.138.249.218]
+x-microsoft-exchange-diagnostics: 1;BY2PR03MB192;5:36cL441gt5vPntTM8E4dlnRQiReuwhHoj5N2YbC1dfKJTT8u2dAnfOfa3I+ew/4SY0t8Bqn9Y51Bz//TibgcoucQ0YXjM9TqFPAza/KePByONc2bO+RZxgszExO7q4bsAEHTEexUkChAqwbV4eX/6w==;24:WM+CJDYfokEvnwI+HkuG0u/dUeFrL44Vt6Bp5FtAEZDm1CucTlPihuFD6NsSpktSTkxHl9vBOffiHGJakZ9BbI64sUOhlo31oSyvnlHY6/M=
+x-microsoft-antispam: UriScan:;BCL:0;PCL:0;RULEID:;SRVR:BY2PR03MB192;
+x-microsoft-antispam-prvs: <BY2PR03MB1928AF9A3AD53043925EF65F8F20@BY2PR03MB192.namprd03.prod.outlook.com>
+x-exchange-antispam-report-test: UriScan:;
+x-exchange-antispam-report-cfa-test: BCL:0;PCL:0;RULEID:(601004)(2401047)(5005006)(8121501046)(520078)(3002001)(10201501046);SRVR:BY2PR03MB192;BCL:0;PCL:0;RULEID:;SRVR:BY2PR03MB192;
+x-forefront-prvs: 08118EFC2B
+x-forefront-antispam-report: SFV:NSPM;SFS:(10019020)(6009001)(199003)(24454002)(377454003)(164054003)(189002)(479174004)(13464003)(5004730100002)(105586002)(106116001)(110136002)(11100500001)(81156007)(97736004)(189998001)(10400500002)(99286002)(122556002)(76576001)(92566002)(86362001)(107886002)(5001960100002)(101416001)(2900100001)(74316001)(450100001)(19580405001)(90282001)(87936001)(89122001)(15975445007)(19580395003)(6116002)(2950100001)(88552001)(50986999)(586003)(1096002)(75432002)(76176999)(3846002)(5008740100001)(54356999)(40100003)(2171001)(5002640100001)(5003600100002)(33656002)(1220700001)(66066001)(102836003)(106356001);DIR:OUT;SFP:1102;SCL:1;SRVR:BY2PR03MB192;H:BY2PR03MB192.namprd03.prod.outlook.com;FPR:;SPF:None;PTR:InfoNoRecords;A:1;MX:1;LANG:en;
+received-spf: None (protection.outlook.com: Colorado.EDU does not designate
+ permitted sender hosts)
+spamdiagnosticoutput: 1:23
+spamdiagnosticmetadata: NSPM
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: colorado.edu
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Jan 2016 22:55:22.8209
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3ded8b1b-070d-4629-82e4-c0b019f46057
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY2PR03MB192
+
+RG91ZywNCg0KSSdtIGFib3V0IHRvIHNlbmQgeW91IGFuIGludml0ZSB0byBqb2luIG91ciBuZXcg
+d2Vic2l0ZS4gVGhlIGludml0ZSB3aWxsIGJlIGF0IHlvdXIgQ29sb3JhZG8uZWR1IGVtYWlsIGFk
+ZHJlc3MuIEJlIGxvb2tpbmcgb3V0IGZvciBhbiBlbWFpbCBmcm9tIG5vcmVwbHlAY29sb3JhZG8u
+ZWR1LiBPbmNlIHlvdSBhY2NlcHQgdGhlIGludml0YXRpb24sIHlvdSB3aWxsIGJlIGFibGUgdG8g
+ZWRpdCB0aGUgcGFnZXMgSSd2ZSBsaW5rZWQgYmVsb3cuDQoNCkhlcmUgaXMgeW91ciBjb3Vyc2Ug
+cGFnZToNCmh0dHBzOi8vd3d3LmNvbG9yYWRvLmVkdS9hbWF0aC9jb3Vyc2UtcGFnZXMvc3ByaW5n
+LTIwMTYvYXBwbS0yNzIwLW9wZW4tdG9waWNzLWFuYWx5c2lzLXJlc2VhcmNoLXNwcmluZy0yMDE2
+IA0KDQpIZXJlIGlzIHlvdXIgZmlsZSB1cGxvYWQgcGFnZToNCmh0dHBzOi8vd3d3LmNvbG9yYWRv
+LmVkdS9hbWF0aC9hcHBtLTI3MjAtb3Blbi10b3BpY3MtYW5hbHlzaXMtcmVzZWFyY2gtc3ByaW5n
+LTIwMTYtZmlsZXMgIA0KDQpIZXJlIGFyZSBpbnN0cnVjdGlvbnMgZm9yIHVzaW5nIG91ciBuZXcg
+c2l0ZSAodXBsb2FkaW5nIGZpbGVzLCBmb3JtYXR0aW5nLCBldGMuLi4pOg0KaHR0cHM6Ly93d3cu
+Y29sb3JhZG8uZWR1L2FtYXRoL2ZhY3VsdHktc3RhZmYvaXQtaGVscC9uZXctd2Vic2l0ZS1yZXNv
+dXJjZXMgDQoNCklmIHlvdSBuZWVkIGFueSBoZWxwLCBwbGVhc2UgZG9u4oCZdCBoZXNpdGF0ZSB0
+byBjb250YWN0IG1lIQ0KDQpUaGFua3MsDQpKYWNvYiBULg0KDQotLS0tLU9yaWdpbmFsIE1lc3Nh
+Z2UtLS0tLQ0KRnJvbTogRG91ZyBOeWNoa2EgW21haWx0bzpueWNoa2FAdWNhci5lZHVdIA0KU2Vu
+dDogTW9uZGF5LCBKYW51YXJ5IDQsIDIwMTYgMzo0MSBQTQ0KVG86IEphY29iIERhdmlkIFRhZm95
+YSA8SmFjb2IuVGFmb3lhQENvbG9yYWRvLkVEVT4NClN1YmplY3Q6IFJlOiBzZXR0aW5nIHVwIGEg
+Y2xhc3Mgd2ViIHBhZ2UgZm9yIEFQUE0yNzIwDQoNCiAgQVBQTTI3MjANClRoYW5rcyENCg0KRG91
+ZyBOeWNoa2ENClNlbmlvciBTY2llbnRpc3QgIGFuZA0KRGlyZWN0b3Igb2YgdGhlIEluc3RpdHV0
+ZSBmb3IgTWF0aGVtYXRpY3MgQXBwbGllZCB0byBHZW9zY2llbmNlcyBOYXRpb25hbCBDZW50ZXIg
+Zm9yIEF0bW9zcGhlcmljIFJlc2VhcmNoIENlbGwgMzAzIDcyNSAzMTk5ICBXZWIgIHd3dzIuaW1h
+Z2UudWNhci5lZHUvc3RhZmYvbnljaGthDQoNCk9uIDEvNC8xNiAzOjI0IFBNLCBKYWNvYiBEYXZp
+ZCBUYWZveWEgd3JvdGU6DQo+IERvdWcsDQo+DQo+IE9mIGNvdXJzZSBJIGNhbiBzZXQgdXAgYSBj
+b3Vyc2UgcGFnZSBmb3IgeW91IQ0KPg0KPiBDYW4geW91IGp1c3QgdGVsbCBtZSB0aGUgY291cnNl
+IG51bWJlcj8NCj4NCj4gVGhhbmtzLA0KPiBKYWNvYiBULg0KPg0KPiAtLS0tLU9yaWdpbmFsIE1l
+c3NhZ2UtLS0tLQ0KPiBGcm9tOiBEb3VnIE55Y2hrYSBbbWFpbHRvOm55Y2hrYUB1Y2FyLmVkdV0N
+Cj4gU2VudDogTW9uZGF5LCBKYW51YXJ5IDQsIDIwMTYgMzoyMCBQTQ0KPiBUbzogSmFjb2IgRGF2
+aWQgVGFmb3lhIDxKYWNvYi5UYWZveWFAQ29sb3JhZG8uRURVPg0KPiBTdWJqZWN0OiBzZXR0aW5n
+IHVwIGEgY2xhc3Mgd2ViIHBhZ2UgZm9yIEFQUE0yNzIwDQo+DQo+IEphY29iLA0KPiBJIGFtIHRl
+YWNoaW5nIGEgc3BlY2lhbCB0b3BpY3MgY291cnNlIHRoaXMgc2VtZXN0ZXIgYW5kIHdvdWxkIGxp
+a2UgdG8gaGF2ZSBhIHdlYiBwYWdlIHRvIHBvc3QgaW5mb3JtYXRpb24gZm9yIG15IGNsYXNzLiBJ
+cyB0aGF0IHBvc3NpYmxlPw0KPg0KPiAgICBXaWxsIEtsZWliZXIgc3VnZ2VzdGVkIEkgd3JpdGUg
+eW91Lg0KPiBJIGhhdmUgYW4gaWRlbnRpa2V5IGFjY291bnQgd2l0aCBDVSBpZiB0aGF0IGhlbHBz
+Lg0KPiBsb2dvbiBpcyBkb255NzE0NQ0KPg0KPiBUaGFua3MsDQo+IERvdWcNCj4NCj4gLS0NCj4g
+RG91ZyBOeWNoa2ENCj4gU2VuaW9yIFNjaWVudGlzdCAgYW5kDQo+IERpcmVjdG9yIG9mIHRoZSBJ
+bnN0aXR1dGUgZm9yIE1hdGhlbWF0aWNzIEFwcGxpZWQgdG8gR2Vvc2NpZW5jZXMgDQo+IE5hdGlv
+bmFsIENlbnRlciBmb3IgQXRtb3NwaGVyaWMgUmVzZWFyY2ggQ2VsbCAzMDMgNzI1IDMxOTkgIFdl
+YiAgDQo+IHd3dzIuaW1hZ2UudWNhci5lZHUvc3RhZmYvbnljaGthDQo+DQoNCg==
