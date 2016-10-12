@@ -4,7 +4,8 @@ Universtiy of Colorado, Boulder, Spring 2016.
 
 Douglas Nychka
 *Affiliate Faculty*, Applied Mathematics
-Scientific Staff, National Center for Atmospheric Research
+
+Scientific Staff, National Center for Atmospheric Research, Boulder, CO
 
 <span>**Introduction**</span>
 
