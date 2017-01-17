@@ -1,0 +1,45 @@
+---
+title: "Class Notes "
+author: "Doug nychka"
+date: "January 27, 2016"
+output: html_document
+---
+
+
+Create a small matrix of numbers to do some examples
+
+```{r}
+look<- matrix( 1:12, ncol=4, nrow=3)
+look
+```
+Create an NA
+```{r}
+look[2,3] <- NA
+look
+look2<- is.na( look)
+look2
+
+ look==4 
+
+```
+
+Applying over rows and columns
+
+```{r}
+apply( look, 1, "max")
+
+apply( look, 2, "max")
+
+```
+
+Here is an image plot of this matrix
+```{r}
+image(1:3, 1:4, look, col=rainbow(256))
+```
+
+Here is an image plot of this matrix
+using the fields function that adds a legend
+```{r}
+library(fields)
+image.plot(1:3, 1:4, look, col=rainbow(256))
+```
