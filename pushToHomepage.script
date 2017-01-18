@@ -1,0 +1,12 @@
+    
+sftp darwin.scd.ucar.edu
+cd public_html/Temp/APPM2720
+    mput FlyerOutline/APPM2720Flyer.pdf
+    mput courseSchedule2017.pdf
+mput Homework
+mput Week*/
+mput Quize1/*    
+# on darwin     
+    cd public_html/Temp/APPM2720
+	chmod og+r * */*
+	
