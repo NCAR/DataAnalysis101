@@ -1,8 +1,12 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 
 <head>
+
 <meta charset="utf-8">
-<title>APPM2720Lecture3</title>
+<title>Lecture2</title>
+
+
 <style type="text/css">
 body {
   font-family: Helvetica, arial, sans-serif;
@@ -302,38 +306,75 @@ sup {
 	}
 }
 </style>
+
+
 </head>
+
 <body>
-<h1 id="toc_0">APPM 2720 Week2</h1>
 
-<h1 id="toc_1">Using built in functions in R and writing your own.</h1>
+<h1 id="toc_0">Lecture 2 APPM2720 spring 2016</h1>
 
-<p>See the script <strong>Rfunctions.R</strong> </p>
+<p>This lecture is an introduction to R and some 
+stats nuggets and experience in programming tossed in along the way. </p>
 
-<h1 id="toc_2">Using the apply function</h1>
-
-<p>See <strong>Rapply.R</strong></p>
-
-<p>The apply finds statistics for subgroups of the data</p>
+<p>The way to participate in this lecture is to </p>
 
 <ul>
-<li><strong>apply</strong> for regular tables to find stats for say the rows or columns</li>
-<li><strong>tapply</strong> for stats where the subgroups are given by different catgeories</li>
-<li><p><strong>lapply</strong> for stats where the subgroups are the components of a list.</p>
-
-<h1 id="toc_3">Boxplots - a quick definition</h1></li>
-<li><p>Notch: a line at the median of the data</p></li>
-<li><p>upper and lower hinge ( 25% and 75% quartiles)</p></li>
-<li><p>box joins the hinges</p></li>
-<li><p>inner fence  +1.5 IQR from each edge of box </p></li>
-<li><p>whiskers line from box to last observation before the inner fences</p></li>
-<li><p>points beyond fences are plotted individually and</p></li>
-<li><p>considered unusual</p>
-
-<h1 id="toc_4">An example</h1>
-
-<p><img src="boxplotFigure.png" alt=""></p></li>
+<li><p>open R studio (just R will be OK too.) </p></li>
+<li><p>load or create an R  script file in to your editing window</p></li>
+<li><p>cut, paste R commands from your editing window into the R command window to run the code. </p></li>
+<li><p>add more code and comments as you work through the
+lecture and answer the questions. </p></li>
+<li><p>when you are done (or periodically) save your file  in R studio. </p></li>
 </ul>
+
+<p>The R scripts in this lecture cover </p>
+
+<ul>
+<li><p>Basic housekeeping of your R workspace <strong>RBasics.R</strong></p></li>
+<li><p>Arithemtic and naming data sets (objects) <strong>RMath.R</strong></p></li>
+<li><p>Subsetting and extracting pieces of a data set <strong>RSubsetting.R</strong> (This will be assigned to work through outside of class.)</p></li>
+</ul>
+
+<!---
+#- How to use functions with data sets **RFunctions.R**
+
+
+- Plotting basics **RPlotting.R**
+-->
+
+<h1 id="toc_1">R survival</h1>
+
+<ul>
+<li><p>R is case senitive</p></li>
+<li><p>lines starting with # are comments </p></li>
+<li><p><strong>help</strong>    help(plot) or ?plot gives you help documentation on a function or data set</p></li>
+<li><p>When you quit R your workspace you will be asked to save your workspace. To recover past commands typed in see the history function. To save the workspace in your session use <strong>save.image()</strong> in the command window.  </p></li>
+</ul>
+
+<h2 id="toc_2">The magnicifient seven</h2>
+
+<p>Basic functions to survive in R:</p>
+
+<ul>
+<li><p><code>ls</code>lists the data sets in your workspace  ls()</p></li>
+<li><p><code>rm</code>  removes a data set from your workspace  rm(classGrades)</p></li>
+<li><p><code>&lt;-</code> assigns values to a data set  a &lt;- 3.5</p></li>
+<li><p><code>seq or  :</code>  creates a sequence of equally spaced values.     1:4  or  seq( 0,1,length.out=10)</p></li>
+<li><p><code>[ ]</code> lets you select subsets of a data set or particular values.    <code>a[1:5] or b[1,2] or b[,3]</code></p></li>
+<li><p><code>c</code> combines values or data sets   <code>a&lt;- c( 3.5, 4.8) or  X &lt;- c(a, c)</code></p></li>
+<li><p><code>library</code> loads an additional library to use in your R session  <code>library(fields)</code></p></li>
+</ul>
+
+<h1 id="toc_3">Creating reports for homework assignments and projects</h1>
+
+<ul>
+<li><p>the notebook button (top line in the editting window a spiral notebook icon) in Rstudio will let you convert your R code into a spiffy report. </p></li>
+<li><p>You can convert your R code into the markdown format to add text and still be able to &quot;run&quot; your code and get a good looking report. To get started create a blank R Markdown file using the green +
+button, follow the hints  and then fill it in!</p></li>
+</ul>
+
+
 
 <script type="text/x-mathjax-config">
 if (typeof MathJaxListener !== 'undefined') {
@@ -342,7 +383,10 @@ if (typeof MathJaxListener !== 'undefined') {
   });
 }
 </script>
+
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
 </body>
 
 </html>
