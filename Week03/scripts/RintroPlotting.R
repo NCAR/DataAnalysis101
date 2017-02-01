@@ -1,8 +1,8 @@
 # read in the Boulder data 
-load( "BoulderTemperature.rda")
+#load( "BoulderTemperature.rda")
 # Or use:
-#library( dataWorkshop)
-# data(BoulderTemperature)
+library( dataWorkshop)
+ data(BoulderTemperature)
 
 # some examples of subsetting and conversions
 BT1<-BoulderTemperature$jun
@@ -47,7 +47,8 @@ abline( h= 70)
 
 
 # WorldBank data on CO2 emissions per capita
-load("WorldBankCO2.rda")
+#load("WorldBankCO2.rda")
+data("WorldBankCO2")
 
 WB<- WorldBankCO2
 
@@ -70,15 +71,15 @@ ind<- (y >=6)
 # ind is now a data set of TRUE and FALSE values the same length as y
 
 # add some labels
-text( x[ind], y[ind], labels= row.names( WB)[ind])
+text( (x[ind]),(y[ind]), labels= row.names( WB)[ind])
 
 # or try redrawing with 
-#   text( x[ind], y[ind], labels= row.names( WB)[ind], adj=1.1)
+#   text( x[ind], y[ind], labels= row.names( WB)[ind],
+#     adj=1.1)
 
 
 # an elegant way to do the plot using the ~ and the log option
 plot(CO2.cap ~ GDP.cap, data=WB, log="xy", xlab="GDP", ylab="CO2")
-text( x[ind], y[ind], labels= row.names( WB)[ind], adj=1.1)
 
 # fitting a smooth statistical curve through the data
 # you will have to use the fields library
@@ -107,12 +108,15 @@ Bmean<- mean(BT1, na.rm=TRUE)
 abline( v=Bmean, col="red", lwd=4)
 
 # generate a sample from a Gaussian  (aka Normal) distribution  and 
-# add the theorectical probablity function
+
 
 # 5000 samples
 Y<- rnorm( 5000)
 hist( Y, prob=TRUE, col="green4")
 
+# the required plot in any probability math class!
+# superimposing theoretical "histogram" on top of
+# sample
 x<- seq( -3,3,,100)
 yDensity<- dnorm( x)
 lines( x, yDensity, col="grey", lwd=3)
