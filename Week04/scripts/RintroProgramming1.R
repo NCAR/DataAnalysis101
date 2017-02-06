@@ -4,26 +4,15 @@
 #looping in R the for loop 
 ######################################
 
-# simple loop
-  for( k in 1:10){
-    print( c(k, k^2) ) }
+library( dataWorkshop)
+data(BoulderTemperature)
 
-######################################
-#### creating a new object through a for loop
-######################################
-myTable<- matrix( NA, ncol=2, nrow=10)
-for( k in 1:10){
-  myTable[k, 1:2] <- c(k, k^2)
-  }
-
-########## looping over rows of a data set
-##########
-load( "BoulderTemperature.rda")
 # find the number of rows and columns
 dim( BoulderTemperature)
+# create a matrix to hold results
 myStats<- matrix( NA, nrow=118, ncol=3)
 
-# for some reason this example will work for a data frame
+# for some reason this example will not work for a data frame
 # I think it has to do with data frame allowing for rows that 
 # may be of the same type.
 

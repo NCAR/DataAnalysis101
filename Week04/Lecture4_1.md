@@ -1,6 +1,21 @@
 # APPM2720 Week4 Lecture
 
-## More on programming
+## reveiw of functions:
+
+A simple interquartile function:
+```
+ myIQR<- function( y, na.rm=FALSE)
+ {
+ # function body
+  hold<- quantile( y, c( .75,.25),
+                       na.rm = na.rm )
+                 )
+ # return         
+  return( hold[2]-hold[1])
+ }
+```
+
+## looping and flow control 
 
 A ````for```` loop is often a useful way to loop over a data set or to do a compuation. 
 
@@ -11,6 +26,7 @@ To get started here is another way to modify more than one value
 ```{r} 
  x<- 1:10
  xSquared<- x^2
+ cbind( x, xSquared)
 ```
 *With for loop*
 
@@ -43,6 +59,15 @@ myTable<- cbind( x, xSquared)
 return(myTable)
 }
 
+Looping over data subsets 
+Find the mean for the AudiA$ prices by year
+```
+```{r}
+for( yr in 1999:2015){
+  ind<- AudiA4$year == yr
+  tempM<- mean( AudiA4$price[ind] )
+  print( c(yr, tempM) )
+}
 ```
 
 An important command to use within a for loop is the 
@@ -51,32 +76,40 @@ conditional statements.
 
 For example for the ````AudiA4```` data set one might only want to calculate statistics by year if the number of samples is large enough. 
 
+
 ```{r}
-yearsInData<- unique( AudiA4$year)
-for( yr in yearsInData){
+for( yr in 1999:2015){
   ind<- AudiA4$year == yr
-  tempP <- AudiA4$price[ind]
-  tempM<- AudiA4$mileage[ind]
-  print( sum(ind))
-  ### if block
-  if( sum( ind) > 10){
-    #  do some stats on tempP and tempM
-    print( mean( tempP/ tempM) )
+  tempM<- mean( AudiA4$price[ind] )
+  if( sum( ind) >=20 ){
+  print( c(yr, tempM) )
   }
 }
 ```
+
 An extension is the if/else statement that allows you to deal with both cases (TRUE or FALSE). Here is an example for changing the if block above
 
-````
-### if block
-  if( sum( ind) > 10){
-    #  do some stats on tempP and tempM
-    print( mean( tempP/ tempM) )
+```
+for( yr in 1999:2015){
+  ind<- AudiA4$year == yr
+  tempM<- mean( AudiA4$price[ind] )
+### ifelse block
+  if( sum( ind) > 20 ){
+    cat( yr, tempM, fill=TRUE) 
   }
   else{
-    print("less than 10 observations"}
+    cat( yr, " has less than 20 observations",
+                    fill=TRUE)
   }
-````
+### end ifelse block  
+}  
+```
+```cat``` is a handy way to print out things in
+a loop. It is very flexible but be sure to add
+``` fill = TRUE``` to start the next printing
+on a new line. 
+
+
 
 
  
