@@ -35,7 +35,7 @@ The ```plot``` has lots of options but the most important technique is build up 
 
 - use additional options, ``` cex```, ```col``` ```pch``` , ```lwd``` and ```lty``` to adjust the size, color, plotting character, line width and line type.
 
-- adjust the axis scales with ```xlab``` and ```ylab``` and use log scaling with  the ```log``` argument.
+- adjust the axis scales with ```xlim``` and ```ylim``` and use log scaling with  the ```log``` argument.
 
 - Remember use the help function and search on the web you are probably not the first to have a particular question about plotting in R!
   

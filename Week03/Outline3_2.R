@@ -18,11 +18,18 @@ boxplot( exampleData)
 data("WorldBankCO2")
 
 WB<- WorldBankCO2
+WB[1,]
+
+tail( WB)
+
+#Q make a scatterplot of GDP.cap and CO2.cap
+#     (wealth of country verses the amount of CO2 emitted)
+
+plot( WB$GDP.cap, WB$CO2.cap)
+# plot hard to interpret
 
 #Q how do you look at the first row on these data?
 #Q how would you extract the country names?
-#Q make a scatterplot of GDP.cap and CO2.cap
-#     (wealth of country verses the amount of CO2 emitted)
 
 #Q Fix this plot by log transformations of both variables!
 
@@ -31,7 +38,22 @@ WB<- WorldBankCO2
 x<- log10(WB$GDP.cap )
 y<- log10( WB$CO2.cap)
 
+plot( x,y, xlab="GDP", ylab="CO2")
+title( "CO2 emissions for 75 largest countries")
+which.max( y) # its 69
+WB[69,]
+
+ind <- y >= 6.0
+# the big guys
+WB[ind, ]
+  
 # adding the country names to the larger values
+ tempNames<- rownames( WB)
+ tempNames<- tempNames[ind]
+ 
+text( x[ind], y[ind], labels= tempNames,
+      adj=1, cex=.5 )
+
 
 # add some labels
 
