@@ -32,7 +32,7 @@ To get started here is another way to modify more than one value
 
 ```{r}
 for( k in 1:10){
-print( k, k^2)
+print( c(k,k^2) )
 }
 ```
 *Saving data*
@@ -51,8 +51,8 @@ for( k in 1:10){
 ```{r}
 makeSquaresTable<- function(N){
 x<- 1:N
-xSquared<- rep( NA, 10)
-for( k in 1:10){
+xSquared<- rep( NA, N)
+for( k in 1:N){
   xSquared[k] <- x[k]^2
 }
 myTable<- cbind( x, xSquared)
@@ -60,13 +60,13 @@ return(myTable)
 }
 
 Looping over data subsets 
-Find the mean for the AudiA$ prices by year
+Find the mean for the AudiA4$prices by year
 ```
 ```{r}
 for( yr in 1999:2015){
   ind<- AudiA4$year == yr
-  tempM<- mean( AudiA4$price[ind] )
-  print( c(yr, tempM) )
+  tempMean<- mean( AudiA4$price[ind] )
+  print( c(yr, tempMean) )
 }
 ```
 
@@ -80,9 +80,9 @@ For example for the ````AudiA4```` data set one might only want to calculate sta
 ```{r}
 for( yr in 1999:2015){
   ind<- AudiA4$year == yr
-  tempM<- mean( AudiA4$price[ind] )
+  tempMean<- mean( AudiA4$price[ind] )
   if( sum( ind) >=20 ){
-  print( c(yr, tempM) )
+  print( c(yr, tempMean) )
   }
 }
 ```
@@ -92,10 +92,10 @@ An extension is the if/else statement that allows you to deal with both cases (T
 ```
 for( yr in 1999:2015){
   ind<- AudiA4$year == yr
-  tempM<- mean( AudiA4$price[ind] )
+  tempMean<- mean( AudiA4$price[ind] )
 ### ifelse block
-  if( sum( ind) > 20 ){
-    cat( yr, tempM, fill=TRUE) 
+  if( sum( ind) >= 20 ){
+    cat( yr, tempMean, fill=TRUE) 
   }
   else{
     cat( yr, " has less than 20 observations",

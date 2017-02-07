@@ -143,7 +143,7 @@ $(document).ready(function () {
  cbind( x, xSquared)</code></pre>
 <p><em>With for loop</em></p>
 <pre class="{r}"><code>for( k in 1:10){
-print( k, k^2)
+print( c(k,k^2) )
 }</code></pre>
 <p><em>Saving data</em></p>
 <pre class="{r}"><code>x&lt;- 1:10
@@ -156,8 +156,8 @@ for( k in 1:10){
 <p><em>as a more generic function</em></p>
 <pre class="{r}"><code>makeSquaresTable&lt;- function(N){
 x&lt;- 1:N
-xSquared&lt;- rep( NA, 10)
-for( k in 1:10){
+xSquared&lt;- rep( NA, N)
+for( k in 1:N){
   xSquared[k] &lt;- x[k]^2
 }
 myTable&lt;- cbind( x, xSquared)
@@ -165,28 +165,28 @@ return(myTable)
 }
 
 Looping over data subsets 
-Find the mean for the AudiA$ prices by year</code></pre>
+Find the mean for the AudiA4$prices by year</code></pre>
 <pre class="{r}"><code>for( yr in 1999:2015){
   ind&lt;- AudiA4$year == yr
-  tempM&lt;- mean( AudiA4$price[ind] )
-  print( c(yr, tempM) )
+  tempMean&lt;- mean( AudiA4$price[ind] )
+  print( c(yr, tempMean) )
 }</code></pre>
 <p>An important command to use within a for loop is the <code>if</code> statement to control computations based on conditional statements.</p>
 <p>For example for the <code>AudiA4</code> data set one might only want to calculate statistics by year if the number of samples is large enough.</p>
 <pre class="{r}"><code>for( yr in 1999:2015){
   ind&lt;- AudiA4$year == yr
-  tempM&lt;- mean( AudiA4$price[ind] )
+  tempMean&lt;- mean( AudiA4$price[ind] )
   if( sum( ind) &gt;=20 ){
-  print( c(yr, tempM) )
+  print( c(yr, tempMean) )
   }
 }</code></pre>
 <p>An extension is the if/else statement that allows you to deal with both cases (TRUE or FALSE). Here is an example for changing the if block above</p>
 <pre><code>for( yr in 1999:2015){
   ind&lt;- AudiA4$year == yr
-  tempM&lt;- mean( AudiA4$price[ind] )
+  tempMean&lt;- mean( AudiA4$price[ind] )
 ### ifelse block
-  if( sum( ind) &gt; 20 ){
-    cat( yr, tempM, fill=TRUE) 
+  if( sum( ind) &gt;= 20 ){
+    cat( yr, tempMean, fill=TRUE) 
   }
   else{
     cat( yr, &quot; has less than 20 observations&quot;,

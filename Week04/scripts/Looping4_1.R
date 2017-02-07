@@ -70,11 +70,13 @@ x<- seq( -3,3, length.out = 40)
 y<- seq( -3,3,length.out=40)
 Z<- matrix( NA, 40, 40)
 for( i in 1:40){
+  cat(i, " ", fill=TRUE)
   for( j in 1:40){
     Z[i,j]<- exp( - (x[i]^2 + 2*y[j]^2) )
   }
 }  
   
+library( fields)
 
 image.plot( x,y,Z)
 
