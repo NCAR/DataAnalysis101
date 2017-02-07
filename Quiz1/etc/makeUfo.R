@@ -1,0 +1,9 @@
+load( "ufo.rda")
+temp<- as.Date( ufo[,1], "%m/%d/%Y")
+#ufo$date<- as.character(temp)
+ufo$shape <- as.character( ufo$shape)
+ufo$year<- as.numeric( year(temp) )
+ufo$month<- month(temp)
+ufo$datetime<- as.character(ufo$datetime )
+save( ufo, file="ufoQuiz1.rda")
+

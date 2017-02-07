@@ -15,7 +15,7 @@ Note that for the datasets in these examples you can either load them from the W
 
 
 
-Q1 Make boxplots for the monthly temperatures  in **BoulderTemperature** ( ```BT.rda``` ). Which months have the most similar distributions of temperatures?
+Q1 Make boxplots for the monthly temperatures  in **BoulderTemperature** ( see ```BoulderTemperature.rda``` ). Which months have the most similar distributions of temperatures?
  
 Q2 Use the formula format to make boxplots of the Audi A4 prices by year. Which years seem to have outliers?
 
