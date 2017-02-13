@@ -1,0 +1,101 @@
+
+More programming tips for data analysis
+--
+
+Writing R code often involves adding features that make the results better documented and also making the inputs do the function is easy to use. 
+
+This lecture gives some strategies that are often helpful.
+
+As motivation here is a simple function to fit a quadratic polyomial function to a data set using the **lm** function and return the predicted values. (You need to load the fields package for this to work.)
+```{r}
+myFit<- function( x,y){
+ degree<- 2
+ fit<- lm(y~ x + I(x^2) )
+ A<- fit$coefficients
+ predValues<- A[1] + A[2]*x + A[3]*x^2
+return( predValues)
+}
+```
+Note: ```fields.mkpoly``` will return a matrix where each column is a power of x. At this point what lm does and why is still mysterious -- this will be covered when we talk about least squares fitting. 
+
+```{r include=FALSE}
+library(dataWorkshop)
+```
+```{r}
+data(AudiA4)
+hold<- myFit( AudiA4$mileage, AudiA4$price)
+# take a look
+plot( AudiA4$mileage, AudiA4$price)
+points(AudiA4$mileage,hold, col="seagreen")
+```
+
+-- 
+predicting at points that are not data points
+--
+```{r}
+myFit2<- function( x,y, xnew){
+ degree<- 2
+ fit<- lm(y~ x + I(x^2) )
+ A<- fit$coefficients
+ predValues<- A[1] + A[2]*xnew + A[3]*xnew^2
+return( cbind( xnew, predValues) )
+}
+```
+add a line at equally spaced sequence 
+```{r}
+xnew<- seq( 0,2e5,,150)
+plot( AudiA4$mileage, AudiA4$price)
+hold2<- myFit2(AudiA4$mileage, AudiA4$price, xnew)
+lines( hold2, col="orange2", lwd=3)
+```
+
+-- 
+Adding a  default choice to the xnew option. If ```xnew``` is not 
+specified it will be the x data values but in sorted order.
+--
+```{r}
+myFit3<- function( x,y, xnew= sort(x)){
+ degree<- 2
+ fit<- lm(y~ x + I(x^2) )
+ A<- fit$coefficients
+ predValues<- A[1] + A[2]*xnew + A[3]*xnew^2
+return( cbind( xnew, predValues) )
+}
+```
+
+--
+Finally adding some extra information and returning a list with other information.
+-- 
+```{r}
+myFit4<- function( x,y, xnew= sort(x), degree = 2 ){
+# place holder in case this function is extended to other polynomials
+ if( degree != 2){
+ stop("Function does not handle this polynomial degree")
+ }
+ if( any(is.na(y))){
+ warning("y has missing values!")
+ }
+ fit<- lm(y~ x + I(x^2) )
+ A<- fit$coefficients
+ predValues<- A[1] + A[2]*xnew + A[3]*xnew^2
+  return( 
+       list( fit = cbind( xnew, predValues),
+          degree = degree,
+             call= match.call()
+        )
+)
+}
+```
+```{r}
+mileage<-AudiA4$mileage
+yTest<- AudiA4$price
+yTest[1]<- NA
+hold<- myFit4( mileage, yTest)
+print(hold$call)
+print(hold$degree)
+plot( AudiA4$mileage, yTest)
+lines( hold$fit, col="orange3", lwd=3)
+title( hold$call)
+```
+
+
