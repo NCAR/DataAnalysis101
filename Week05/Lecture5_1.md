@@ -38,7 +38,7 @@ See also write.table function to write out a data frame in text format.
 ### Reading in a simple data set in text format.
 In the Week5 folder is the text file 
 ````First1000Primes.txt````
-This is just a text file and has the primes in 100 rows of 10 numbers each. For this very simple format just use ````scan````. 
+This is just a text file and has the primes in 100 rows of 10 numbers each. For this very simple format just use ```scan```. 
 
 ````
 primeData<- scan("First1000Primes.txt")
@@ -46,7 +46,7 @@ primeData<- scan("First1000Primes.txt")
 The scan function is both simple but can also be the "nuclear option" if a really complex data set needs to be read into R and then subsequently cleaned up using other functions. 
 
 ### Reading a data frame
-The file ````WorldBankCO2.txt```` is a text file that can be used to read in the data frame  ````WorldBankCO2```` from the dataWorkshop package.
+The file ````WorldBankData.txt```` is a text file that can be used to read in the data frame  ````WorldBankCO2```` from the dataWorkshop package.
 The first three lines of this file are:
 
 ````
@@ -59,9 +59,39 @@ The read.table function is designed to handle the row and column names
 for the data set. 
 
 ````
-testData<- read.table( "WorldBankCO2.txt")
+testData<- read.table( "WorldBankData.txt")
 ````
-## reformatting to a data frame or matrix
+## Avoiding factors
+When character data is encountered by **read.table** is converted to a factor object. To avoid this use the option ```stringsAsFactor=FALSE```
+
+What does a factor look like?
+Below is an example that creates and manipulates a factor data object. 
+
+````
+ someData<- c("red", "blue", "green","blue", 
+             "red","scarlet","green", "blue", "red")
+ 
+ testF<- as.factor( someData)
+ print( testF)
+ 
+ [1] red     blue    green   blue    red     scarlet
+ [7] green   blue    red    
+ Levels: blue green red scarlet
+ 
+ # extracting the parts of this
+ testID<- as.numeric( testF) # the integer IDs for each data values
+ print( testID)
+ [1] 3 1 2 1 3 4 2 1 3
+ 
+ testLevel<- levels( testF) # character tags
+ print( testLevel)
+ [1] "blue"    "green"   "red"     "scarlet"  
+ 
+# to reproduce just the character version
+ testLevel[testID]
+````
+
+## Reformatting to a data frame or matrix
 Suppose the data set is supposed to have three columns but the file ````data.txt```` looks like:
 
 ````
@@ -88,26 +118,29 @@ D3<- as.data.frame( D2)
 Here are some tips to read in other formats:
 
 - Use ````read.cvs```` for data that is separated by commas. This is handy if the data is written out or saved in csv format from an Xcel spreadsheet
-- Use ````read.fwf```` to read in data where you want to control exact how one counts spaces and interprets the numbers and characters. Usually this is a last resort if free format reading is not possible. 
+- Use ````read.fwf```` to read in data where you want to control *exactly* how one counts spaces and interprets the numbers and characters. Usually this is a last resort if free format reading is not possible. 
 - There are many R packages and functions to read data directly from the web and to extract tables from web pages.  See for example the package XML.
+- The nuclear option: Read in the file where the entire line is a single character string. Then chop up each string into the informaion. Coerce the parts that are numbers from the character string using **as.numeric**. In this effort the function **substr** is useful for grabbing just part of a string and setting ```sep="\n", what="a" ``` will read an entire line as a character string. 
 
 ## Tips on reading complicated data
 
 - Keep all your steps in an R script 
+- Sometimes it is easiest to just edit the few places where the reading break down. I this case keep the old line as a comment (e.g. with **#**) so it is documented.
 - Break up the reading into simpler steps. 
+- One of the most common problems is expecting a single character string but it a name with a space. E.g. **North Carolina** as a state name when reading in a data frame. 
 - Try avoid "hard coding" in details that might change or are used more than once.  For example, the file name could be set as character and the number of lines another variable. Instead of
-
 ````
 tempD<- scan("dataF.txt", skip=5)
 ````
+try
 
 ````
 fileName<- "dataF.txt"
 lines2Skip<- 5
 tempD<- scan(fileName, skip=lines2Skip)
 ````
- 
 
+ 
 
 
 

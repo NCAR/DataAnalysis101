@@ -144,21 +144,25 @@ save( newDataSet, file=&quot;newDS.rda&quot;)</code></pre>
 <div id="reading-in-a-simple-data-set-in-text-format." class="section level3">
 <h3>Reading in a simple data set in text format.</h3>
 <p>In the Week5 folder is the text file</p>
-<pre class="first1000primes.txt````"><code>This is just a text file and has the primes in 100 rows of 10 numbers each. For this very simple format just use ````scan````. 
+<pre class="first1000primes.txt````"><code>This is just a text file and has the primes in 100 rows of 10 numbers each. For this very simple format just use ```scan```. 
 </code></pre>
 <p>primeData&lt;- scan(“First1000Primes.txt”)</p>
 <pre><code>The scan function is both simple but can also be the &quot;nuclear option&quot; if a really complex data set needs to be read into R and then subsequently cleaned up using other functions. 
 
 ### Reading a data frame
-The file ````WorldBankCO2.txt```` is a text file that can be used to read in the data frame  ````WorldBankCO2```` from the dataWorkshop package.
+The file ````WorldBankData.txt```` is a text file that can be used to read in the data frame  ````WorldBankCO2```` from the dataWorkshop package.
 The first three lines of this file are:
 </code></pre>
 <p>“GDP.cap” “Pop.mid” “Pop.urb” “CO2.cap” “Pop” “Algeria” 1785.071723 60.68126966 59.04 164168.334 30032758 “Angola” 656.4225592 50.40936817 48.84 6582.411 13500820</p>
 <pre><code>The read.table function is designed to handle the row and column names
 for the data set. 
 </code></pre>
-<p>testData&lt;- read.table( “WorldBankCO2.txt”)</p>
-<pre><code>## reformatting to a data frame or matrix
+<p>testData&lt;- read.table( “WorldBankData.txt”)</p>
+<pre><code>## Avoiding the automatic conversion to factors for character data
+When character data is encountered by **read.table** is converted to a factor object. To avoid this use the option ```stringsAsFactor=FALSE```
+
+
+## reformatting to a data frame or matrix
 Suppose the data set is supposed to have three columns but the file ````data.txt```` looks like:
 </code></pre>
 <p>1 2 3 5 5 5 4 4 6.5 7 8.5 20</p>

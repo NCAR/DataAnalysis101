@@ -1,6 +1,7 @@
-        numbers  words squares TRUEorFALSE
-a               1   one       1        TRUE
-b               2   two       4        TRUE
-c                3 three       9       FALSE
-d                4  four      16       FALSE
-epsilon       5  five      25       FALSE
+        numbers    words squares TRUEorFALSE
+a             1  oneFish       1        TRUE
+b             2  twoFish       4        TRUE
+c             3  redFish       9       FALSE
+d             4 blueFish      16       FALSE
+epsilon       5  DrSuess      25       FALSE
+f             6  oneFish      36       FALSE

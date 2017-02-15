@@ -32,28 +32,24 @@ primes<- scan("RawFirst1000Primes.txt")
 everything<- scan("SherlockHomes.txt", what="a")
 length( everything)
 
-#################### got a bit carried away below on parsing this data
-everything<- scan("SherlockHomes.txt", what="a", quote='@@')
-# idea is that @@ does not appear anywhere in the doc and so nothing is
-# considered a quoted series of words. 
-length( everything)
+# reading in a data frame and the pesky problems with factors
+#
+look<- read.table( "testDataFrame.txt")
 
-# attempt to get rid of punctuation and an example of the gsub function
- everything2<- gsub('[;.,!?:\"]','', everything )
+# commenting out and editting problematic data lines. 
+read.table( "exchange.txt")
 
-# 100 most frequent words
- wordCount<- table( everything2)
- wordCount<- sort( wordCount, decreasing=TRUE)
- wordCount[1:100]
-# check it!
- sum( everything2=="Holmes")
-# locations of Holmes in the data set
-index<- grep( "Holmes", everything2)
-everything2[index]
+# nuclear option:
+look<- scan( "exchange.txt", sep="\n", what="a")
+length( look)
+for( k in 1:8){
+  hold<- scan( text=look[k], sep=" ", what="a")
+#  cat( "line",  k, "items ", length( hold) , fill=TRUE)
+}
 
-# "word" length  table (many of these are not really words!)
-table(   nchar( unique(everything2), allowNA=TRUE))
-###############################################
+# read in the SP500Yahoo.csv data. 
+# do you think there is a relationship between the spread during the day
+# and the volume. 
 
 # Q2 read in the tornado data (2014_torn.csv) as a data.frame
 # Also included with the torando data is a short description of the columns
@@ -94,6 +90,29 @@ US( add=TRUE)
 world( add=TRUE, col="grey")
 
 
+
+#################### got a bit carried away below on parsing this data
+everything<- scan("SherlockHomes.txt", what="a", quote='@@')
+# idea is that @@ does not appear anywhere in the doc and so nothing is
+# considered a quoted series of words. 
+length( everything)
+
+# attempt to get rid of punctuation and an example of the gsub function
+everything2<- gsub('[;.,!?:\"]','', everything )
+
+# 100 most frequent words
+wordCount<- table( everything2)
+wordCount<- sort( wordCount, decreasing=TRUE)
+wordCount[1:100]
+# check it!
+sum( everything2=="Holmes")
+# locations of Holmes in the data set
+index<- grep( "Holmes", everything2)
+everything2[index]
+
+# "word" length  table (many of these are not really words!)
+table(   nchar( unique(everything2), allowNA=TRUE))
+###############################################
 
 
 
