@@ -1,3 +1,4 @@
+library(lubridate)
 load( "ufo.rda")
 temp<- as.Date( ufo[,1], "%m/%d/%Y")
 #ufo$date<- as.character(temp)
