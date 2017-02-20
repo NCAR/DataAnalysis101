@@ -1,4 +1,11 @@
+# From last week 
+# lamborgini segmentation
+# Pix of Kota
+
 library( fields)
+
+# Q0 build a simple function to view a color in R from [0,1] RGB values
+
 #
 # the test image in the Week6 file testI1.txt is a 
 # 11X17  highly averaged image of the lennon image matrix
@@ -15,7 +22,7 @@ library( fields)
 # use the array function  with c(17,11) to format
 # then use aperm to unflip. the final result should look like Q1
 
-#Q3 read in testI3.txt 
+#Q2 EXTRA CREDIT:  read in testI3.txt 
 # take a look at this file in an editor to see its format 
 # Use this file format to automatically set the
 # row and column sizes for the array function
@@ -24,23 +31,30 @@ library( fields)
 # 
 library(jpeg)
 CULogo<- readJPEG("Colorado-Buffaloes-Logo.jpg")
-#Q4 How large is this image?
+#Q3 How large is this image?
 
 #plotting this image:
 library( raster)
 rasterCULogo<- as.raster( CULogo)
 plot( rasterCULogo)
 
-CUNorlinQuad.jpg
 
-#Q5 what is the color in RGB of the pixel 
-#  750, 920 ? 
+
+#Q4 what is the color in RGB of the pixel 
+#  200, 250 ? 
 # Note in the raster format this is at location 
-#  X= 920 and Y= 720 
+#  X= 250 and Y= 200 
 
-#Q6 How would you flip this image left to right?
+#Q5 How would you flip this image left to right?
 
+#Q8 How would you convert this image to grey scale values. 
 
+#Q9 How many different colors are in this image?
+
+### A edge detection example
+#Here is how to look for big differences in adjacent rows  and columns
+#of pixels. Use a different color scale because images now 
+#make sense as numerical values.
 
 # finding edges in lennon image.
 set.panel(3,1)
@@ -55,45 +69,26 @@ testImage<- lennon[1:256,1:255] - lennon[1:256, 2:256]
 image.plot( testImage,
             col= tim.colors(256)) 
 
+# Q9 find some edges in the Norlin Quad image.  CUNorlinQuad.jpg
+
   
-# rotating and flipping images
-  data(lennon)
-  test1<- lennon  
-# flip image X and Y
-  testFlip<- aperm( test1, c(2,1) )
-#rotate image 90 clockwise
-  test2<- aperm( test1, c(2,1) )
-  N<- 256 # should be the number of columns of test2
-  test2 <- test2[,N:1] # flip top and bottom
-#rotate image 90 counterclockwise
-  N<- 256 # should be the number of columns of test2
-  test2B <- test1[,N:1] # flip top and bottom
-  test2B<- aperm( test2B, c(2,1) )
-#flip image right to left 
-  test3<- test1[256:1,]
-#flip image top and bottom 
-  test4<- test1[, 256:1]
-  
-#  NOTE lennon is in **image** format use the image function to display these
- 
+
   set.panel(2,1)
+  data( lennon)
 # the raster format is different than the image format
 #  (switches the roles of X and Y) and flips top to bottom
+# it also wants to have the color levels between 0 and 1.  
   test0<- as.raster(lennon/255)
   plot( test0)
   
-  N<- 256 # should be the number of columns of test2
+  N<-ncol( lennon) # should be the number of columns the lennon image
   testGood <- lennon[,N:1] # flip top and bottom
   testGood<- aperm(testGood , c(2,1) ) #switch X nad Y
   testGood<- as.raster( testGood/255)
-  plot( testGood)
+  plot(  testGood)
+  
 #NOTE that in this example the as.raster is smart in that
 # if it gets a single image matrix it assumes is grey scale
 # and creates the grey scale color codes.
 
-
-### A edge detection example
-#Here is how to look for big differences in adjacent rows  and columns
-#of pixels. Use a different color scale because images now 
-#make sense as numerical values.
 
