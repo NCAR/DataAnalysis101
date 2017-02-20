@@ -159,7 +159,7 @@ Because the png format is different than the jpeg
 
 
 ###Working with raster format and the raster package
-The raster package is designed for images that are akin to phots and less for manipuating them as matrices. 
+The raster package is designed for images that are akin to photos and less for manipuating them as matrices. 
 Plotting raster images is easy.
 
 ````
