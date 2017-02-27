@@ -2,7 +2,37 @@
 # lamborgini segmentation
 # Pix of Kota
 
+look<- scan( "Used Lamborghini - in 80305 - on Cars.com.html", what="a'")
+car1<- look[2949: (2960-1)]
+strsplit( car1[5], ",")
+
+colors()
+plot( 1:10, col="blueviolet", pch=16, cex=4)
+
+col2rgb( "blueviolet")/256 # out of 256
+
+testColor<- rgb( .539, .168, .883 )
+plot( 1:10, cex=4, col=testColor, pch=16)
+
+testColor<- rgb( 1.0, 1.0, 0 )
+plot( 1:10, cex=4, col=testColor, pch=16)
+
+testColor<- rgb( 1.0, 0, 1.0 )
+plot( 1:10, cex=4, col=testColor, pch=16)
+
+testColor<- rgb( .5, .5, .5 )
+plot( 1:10, cex=4, col=testColor, pch=16)
+
+plot( 1:10, cex=4, col=colors()[1:10], pch=16)
+
+
 library( fields)
+image( matrix(1:10,10,1), col=colors()[1:10],
+            axes=FALSE, xlab="", ylab="")
+
+
+
+
 
 # Q0 build a simple function to view a color in R from [0,1] RGB values
 
@@ -14,7 +44,26 @@ library( fields)
 # and reformat to an image matrix using  the array function
 # you can plot it using the image function with 
 # col=greyScale
-  greyScale<- grey( seq( 0,1,,256))
+
+
+
+ look<- scan("testI1.txt" )
+ look2<- array( look,c(11,17) )
+
+ image(look2, col=tim.colors(256))
+ 
+ greyScale<- grey( seq( 0,1, length.out= 256))
+ 
+ image(look2, col=greyScale)
+ 
+ # refering to pixel locations
+ 
+ image(1:11, 1:17, look2, col=greyScale)
+ points( 8, 12, col="red")
+ 
+ data( lennon)
+ image(lennon, col=greyScale)
+ 
 
 #Q2 read in the version testI2.txt
 #
@@ -38,7 +87,7 @@ library( raster)
 rasterCULogo<- as.raster( CULogo)
 plot( rasterCULogo)
 
-
+CULogo[200,250, ]
 
 #Q4 what is the color in RGB of the pixel 
 #  200, 250 ? 
@@ -56,22 +105,6 @@ plot( rasterCULogo)
 #of pixels. Use a different color scale because images now 
 #make sense as numerical values.
 
-# finding edges in lennon image.
-set.panel(3,1)
-image(1:256, 1:256,lennon/255 , col= greyScale, axes=FALSE,
-      xlab="", ylab="")
-
-testImage<- lennon[1:255,1:256] - lennon[2:256, 1:256]
-image.plot( testImage,
-            col= tim.colors(256))
-
-testImage<- lennon[1:256,1:255] - lennon[1:256, 2:256]
-image.plot( testImage,
-            col= tim.colors(256)) 
-
-# Q9 find some edges in the Norlin Quad image.  CUNorlinQuad.jpg
-
-  
 
   set.panel(2,1)
   data( lennon)
@@ -83,7 +116,7 @@ image.plot( testImage,
   
   N<-ncol( lennon) # should be the number of columns the lennon image
   testGood <- lennon[,N:1] # flip top and bottom
-  testGood<- aperm(testGood , c(2,1) ) #switch X nad Y
+  testGood<- aperm(testGood , c(2,1) ) #switch X and Y
   testGood<- as.raster( testGood/255)
   plot(  testGood)
   

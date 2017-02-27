@@ -64,7 +64,8 @@ and are called the ***residuals***.
  
  - The least squares method actually finds the intercept and slope to minimize the sum of sqaures of the residuals 
  - The residuals are estimates of the true errors.
- - The standard deviation of the residuals (aka residual standard error)  is an estimate of the theoretical standard of the errors. 
+ - The standard deviation of the residuals (aka residual standard error)  is an estimate of the theoretical standard  deviation
+of the errors. 
  - Examining the residuals is one of the ways to check  if the assumptions of the model hold. 
 
  Some things to try: 

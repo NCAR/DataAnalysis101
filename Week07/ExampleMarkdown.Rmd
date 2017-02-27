@@ -1,0 +1,37 @@
+---
+title: "inClassExample"
+author: "Doug nychka"
+date: "2/27/2017"
+output: html_document
+---
+
+```{r}
+# handy way to avoid printing messages from the libraries 
+ suppressMessages(library( dataWorkshop))
+#library( dataWorkshop)
+```
+Now start by loading some data. 
+```{r}
+data( AudiA4)
+Y<- AudiA4$price
+X<- AudiA4$mileage
+```
+
+ And the required scatterplot
+ 
+```{r}
+plot( X,Y)
+```
+
+Display as code but do not run ( just omit the {r})
+Use this when the code has an error but you still want to create the final markdown document.
+
+## Help! This does not work
+```
+plot(X1,Y)
+```
+Try something else 
+
+```{r}
+plot( X, Y, log="y")
+```

@@ -1,0 +1,178 @@
+---
+title: "Quiz 1 Solutions"
+author: "APPM 2720 Doug Nychka"
+date: "2/23/2017"
+output: pdf_document
+fig_width: 3
+fig_height: 1.5
+---
+```{r include=FALSE}
+setwd("~/Home/Repositories/DataAnalysis101/Quiz1")
+```
+(1) ***Load the data set BoulderJuneTemperature convert the temperatures from  Fahrenheit to Kelvin***. (T(K) = (T(°F) + 459.67) × 5/9)
+```{r}
+load( "BoulderJuneTemperature.rda")
+#this data set has two columns!
+temperatureKelvin <- (5/9)* (BoulderJuneTemperature[,2] + 459.67)
+  max(temperatureKelvin)
+ (5/9)*(max(BoulderJuneTemperature[,2]) + 459.67) 
+```
+
+(2) ***If you made a boxplot of these data and the Y axis did not have a scale could you tell if the units were Kelvin or Fahrenheit?***
+
+No because adding a constant to a data set and scaling it by a constant  does not change the 
+*relative* relationships among the statistics used to compute a boxplot and the way outliers are identified. Another way of expressing this is after drawing the boxplot in Fahrenheit if one just relabled the Y axis in Kelvin then that figure would be **identical** to drawing the boxplot with all the temperatures first converted to Kelvin. 
+
+```{r include= FALSE}
+library(fields)
+```
+```
+library(fields)
+```
+
+```{r figure.width = 3, figure.height = 1.5, comment="" }
+
+set.panel(1,2)
+boxplot(BoulderJuneTemperature[,2], main ="Temperature (F)")
+boxplot( temperatureKelvin, main ="Temperature (K)")
+```
+
+(3) ***How many rows and columns are in the data set **ufo**. Is this a matrix or a data frame?***
+
+64506 Rows and 8 Columns. This is a **data.frame** because some columns are character strings. 
+
+```{r comment=""}
+load("ufoQuiz1.rda")
+dim( ufo)
+head( ufo)
+```
+
+(4) ***How many different UFO shapes are reported? What is the most common shape reported?***
+
+There are 29 different shapes with "light" being the most common. 
+
+```{r comment = ""}
+tableUfo<- table( ufo$shape)
+length( tableUfo)
+
+```
+(5) ***Do you find any interesting relationships between the shape and the duration of the event?***
+
+Most of the median durations for shapes are (suspiciously) around 2-4 minutes suggesting the reporting rounds to the minute often and the actual duration may be a guess. 
+It seems that the "changing" category has the greatest range of durations. The specific shapes of "fireball", "chevron", "flash"  have reduced ranges. 
+
+```{r comment = ""}
+
+Q2Ufo<- tapply( ufo$duration, ufo$shape, FUN="median")
+Q2Ufo
+iqrUfo<- tapply( ufo$duration, ufo$shape, FUN="IQR")
+countUfo<-  tapply( ufo$duration, ufo$shape, FUN="length")
+ind<- countUfo >100 # only look cases for larger sample sizes
+# this plot not too helpful!  
+# plot(Q2Ufo[ind],iqrUfo[ind], xlab="median", ylab="interquartile range"  )
+
+boxplot(ufo$duration ~ ufo$shape, ylim = c(0,1600),
+        col= (countUfo >100) +1 ,
+        las=2, axis.cex=.8,   # las rotates labels to be perp to axis
+        ylab="Duration (seconds)",
+        xlab="")
+title("UFO Sightings by reported shape  (black are number < 100) ")
+```
+
+(6) ***Do you see any patterns in the number of sightings per year? How about as a function of the month?***
+
+Rapidly increasing since about 1990. -- This must be when the invasion started ;-).
+Many more sightings in summer months but also more in Fall than Spring.  
+
+```{r}
+countY<- table( ufo$year)
+countM<- table( ufo$month)
+set.panel(1,2)
+plot(names(countY ), as.numeric(countY), xlab="year", ylab="number of UFO sightings" )
+title( "UFO data set from kagle.com")
+plot(names(countM ), as.numeric(countM), xlab="month", ylab="number of UFO sightings" )
+title( "UFO data set from kagle.com")
+```
+
+(7) ***Plot the locations of ufo sightings for the Rocky Mountain Region ( Rectangle of longitudes of -113 to -100 and latitudes of 33 to 46).***
+
+There is a choice here; I actually do not like axes on plots with a map so omitted them. 
+
+```{r }
+
+set.panel( 1,3)
+par( mar=c( 8,2,1,0))
+ind<- (ufo$longitude < -100) & (ufo$longitude > -113) &
+                     (ufo$latitude < 46) & (ufo$latitude > 33 )
+plot( ufo$longitude[ind],ufo$latitude[ind], pch=16, cex=.5, col="black",
+      axes=FALSE, xlab="", ylab="")
+map( "county", add=TRUE, col="grey")# add county boundaries
+map( "state", add=TRUE, col="blue4")# and overlay state ones too.
+points(-105,39.7,pch = 16, col="red")
+text(-106,39.7,"Denver",col = "red", adj=-.5)
+title("All sightings")
+
+ # create a square plot so map looks right
+ind2<-  ind & ufo$duration < 3600
+plot( ufo$longitude[ind2],ufo$latitude[ind2], pch=16, cex=.5, col="magenta",
+      axes=FALSE, xlab="", ylab="")
+map( "county", add=TRUE, col="grey")# add county boundaries
+map( "state", add=TRUE, col="blue4")# and overlay state ones too.
+title("Sightings < 1 hour")
+
+ # create a square plot so map looks right
+ind2<-  ind & ufo$duration >= 3600
+plot( ufo$longitude[ind2],ufo$latitude[ind2], pch=16, cex=.5, col="magenta",
+      axes=FALSE, xlab="", ylab="")
+map( "county", add=TRUE, col="grey")# add county boundaries
+map( "state", add=TRUE, col="blue4")# and overlay state ones too.
+title("Sightings > 1 hour")
+
+```
+
+(8) ***What kind of patterns do you see for this region?  Do the patterns persist if you only look at the very long duration events ( e.g. greater than 3600 seconds == 1 hour)?***
+
+The sightings tend to concentrate around population centers. For example they follow the population density in the Front Range of Colorado. However, there are also some sights in remote areas. There does not seem to be any strong differences between the patterns based on duration of 1 hour. 
+
+
+(9) Generate some R code that converts the strings of dates in the 
+**datetime** column to the numeric years as given in the **year** column. 
+
+```{r include=FALSE}
+library( lubridate)
+```
+
+```
+library( lubridate) # only needed for first solution
+```
+
+```{r comment=""}
+# R elegant way
+dates<- as.Date(ufo$datetime, format="%m/%d/%Y" ) 
+# see also the function: parse_date_time which has better examples.
+justYear<- as.numeric(year( dates))
+
+# another equally good way
+nLength<- nchar(ufo$datetime)
+# days and months with single digits have a shorter strings -- a nightmare!
+# luckily the time always takes up the last 4 spaces so we count from the end. 
+year<- substr( ufo$datetime, nLength -9, nLength - 6 )
+justYear<- as.numeric( year)
+table( justYear) #check that this is OK
+
+# using scan this is essentially building your own date function.
+work<- gsub("/", " ",ufo$datetime) # now dates and time separarted with white spaces
+work2<- scan( text=work, what=" ") # reads this in as if from a file!
+# examine this result
+work2[1:20] 
+# we want every 4th string starting with the  3rd
+ind<- seq( 3, length( work2),4)
+year<- work2[ind]
+justYear<- as.numeric( year)
+
+
+```
+
+
+
+

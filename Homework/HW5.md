@@ -34,17 +34,17 @@ For the spans  .2, .5 and 1.0 smooth the data and find the mean sum of squared d
 For example, 
 
 ``` 
-yHat<- mySmooth3(x,y, xnew = x, span=.2)
-MSE<- mean( (y- yHat)^2, na.rm = TRUE) 
+yHat<- mySmooth3(x,y, xnew = x, span=.2) # note: two values returned x and y
+MSE<- mean( (y- yHat[2])^2, na.rm = TRUE) 
 ```
 Now write a **for** loop where you omit each data point, smooth the remaining data but then predict at the omitted point. A handy way to do this in R is to use the convention that a minus index omitted a value. I.e. for the 10th data value and span = .2.
 
 ```
-yHatCV<- rep( NA, 75) # CV stands for cross-validation
-yHatCV[10] <- mySmooth3(x[-10], y[-10], xnew = x[10], span=.2)
+yHatCV<- matrix( NA, 75, 2) # CV stands for cross-validation
+yHatCV[10,] <- mySmooth3(x[-10], y[-10], xnew = x[10], span=.2)
 ```
 Using this procedure find the MSECV for the different spans,
-``` MSECV<-mean( (y- yHatCV)^2, na.rm = TRUE)``` , How does it compare to the first way?
+``` MSECV<-mean( (y- yHatCV[,2])^2, na.rm = TRUE)``` , How does it compare to the first way?
 
 EXTRA CREDIT: Use a whole sequence of spans instead of 3 and make a plot of MSE and MSECV to compare them. Where is the minimum value for MSECV?
 
