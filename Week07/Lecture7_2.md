@@ -1,7 +1,7 @@
-###APPM2720 Week 7 Lecture: The statistical foundations of least squares 
+###APPM2720 Week 7_2 Lecture: The statistical foundations of least squares 
 Least squares is part of a family of algorithms that fit data by minimizing a specific criterion. It is appropriate to use if the data satisfies certain assumptions. This lecture helps to explains what these assumptions are 
 
-This topic will follow the Chapter 3 of  *An Introduction to Statistical Learning with R* (ISLR) and the pdf for this book has been made publically available with a [copy](http://www.image.ucar.edu/~nychka/Temp/APPM2720/SLRFourthPrinting.pdf) posted on the class web page. 
+This topic will follow the Chapter 3 of  *An Introduction to Statistical Learning with R* (ISLR) and the pdf for this book has been made freely available with a [pdf copy](http://www.image.ucar.edu/~nychka/Temp/APPM2720/ISLRFourthPrinting.pdf) posted on the class web page. 
 
  
 
@@ -41,10 +41,10 @@ summary( fit)
 ````
 
 We do not recover the intercept and slope exactly. 
-The residuals are not exactly equal to the ````trueErrors````
+and the residuals are not exactly equal to the ````trueErrors````. However, the accuracy will improve as the number of observations is increased. 
 
 When using the normal an easy rule  is that you expect
-about 95% of the values to be within 2 standard deviations of the mean. 
+about 95% of the values to be within 2 standard deviations of the mean. In this situation the mean is zero.
 
 ```` sum( 
 (trueErrors <= 2* (.5) + 0.0) &
@@ -53,6 +53,7 @@ about 95% of the values to be within 2 standard deviations of the mean.
 )
 ````
 The percentage gets closer to .95 as the sample size increases.
+In general the probability of the true errors being in a particular interval can be computed using the ```pnorm``` function in R.
 
 
 ### Checking the model -- about residuals
@@ -62,7 +63,7 @@ $e_i =  Y_i  - \hat{\beta}_0 + \hat{\beta}_1 X_i$
 These are just  **observation - predicted value**
 and are called the ***residuals***.
  
- - The least squares method actually finds the intercept and slope to minimize the sum of sqaures of the residuals 
+ - The least squares method actually finds the intercept and slope to minimize the sum of squares of the residuals 
  - The residuals are estimates of the true errors.
  - The standard deviation of the residuals (aka residual standard error)  is an estimate of the theoretical standard  deviation
 of the errors. 

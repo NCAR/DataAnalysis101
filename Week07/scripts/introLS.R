@@ -34,7 +34,7 @@ Y1<- Y[ind]
 points( X1,Y1, col="red")
 
 # brute force
-# this is also incldued as a more substantially program and
+# this is also incldued as a more substantial program and
 # and an example of the image format
 
 S<- array( NA,c(50, 50))
