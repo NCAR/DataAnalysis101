@@ -35,7 +35,7 @@ plot( xlog, y)
 # log the x axis in the plot
 plot( x,y, log="x")
 ````
-Note how the x axis is labled differently for these two 
+Note how the x axis is labeld differently for these two 
 choices. 
 
 
