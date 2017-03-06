@@ -27,7 +27,7 @@ The apply finds statistics for subgroups of the data
  - points beyond fences are plotted individually and are considered unusual
 
  #An example: mileage (1000s) AudiA4 dataset
- ![](boxplotFigure.jpeg =200x)
+ ![](boxplotFigure.jpg)
  
  
   

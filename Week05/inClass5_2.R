@@ -110,7 +110,7 @@ everything4[index]
 # "word" length  table 
 lengthWord<- nchar(everything4)
 table(lengthWord  )
-
+# save( everything4, file="everything4.rda")
 ###############################################
 #Q save this cleaned up version as an R binary file.
 
