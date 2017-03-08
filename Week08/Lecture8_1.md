@@ -28,7 +28,7 @@ Residual Sums of Squares =    $RSS = \sum_i e_i^2$
 
 Residual standard error = $ RSE =  \sqrt{ \frac{1}{N-2} RSS}$
 
-The "minus 2" comes from subtracting the line (slope and intercept). 
+The "minus 2" comes from subtracting the line (slope and intercept). In general for least squares fitting the 2 is replaced by the total number of least squares parameters being fit.
 
 - The residual standard error summarizes the spread in the residuals and is useful if they are approximately normal
 (e.g. follows rules for fraction being within certain number of standard deviations of zero.)
@@ -45,7 +45,7 @@ This is the RSS if we just predicted Y with a constant value!
 
 (R squared) = $ R^2 =  1 -   RSS/TSS $
 
-R squared close to 1 means the line predicts teh data well.
+R squared close to 1 means the line predicts the data well.
 close 0 to zero means the line does not explain much of the 
 variability in  Y. 
 
@@ -66,7 +66,7 @@ Or in the form of R^2
 1- (sd( fit$residuals ) / sd( Y))^2
 ````
 
-Not exactly  equal to R squared but  easier to  think about. 
+Not exactly  equal to R squared  because it missed the adjustment for the number of parameters -- but  easier to  think about and commuicate. 
 
 
 

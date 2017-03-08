@@ -1,0 +1,46 @@
+library( dataWorkshop)
+data( AudiA4)
+
+Y<- AudiA4$price
+X<- AudiA4$mileage
+ind<- ( X >= 20000)& (X<= 75000)
+Y1<- Y[ind]
+X1<- X[ind]
+# the "raw" distribution of Y1 
+
+# fitting subset and the full data set to look at R^2 and sd's 
+
+
+# what about model year?? Is it better?
+
+
+# A digression: the obvious mess up if the Y1 are scrambled
+
+
+####
+#### fitting more than one variable 
+#### a quadratic in mileage  and/or year and mileage together
+####
+
+# quadratic model in mileage.
+
+# checking residuals. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

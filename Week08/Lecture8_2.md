@@ -1,7 +1,7 @@
-###APPM2720 More than one predictor
+###APPM2720 Lecture 8_2 More than one predictor
 
 The power of least squares regeression is to use several 
-variables simulatanously for prediction.  The AudiA4 data is an example where using mileage and year together work much better 
+variables simultanously for prediction.  The AudiA4 data is an example where using mileage and year together work much better 
 than either alone. This lecture outlines some principles for 
 multiple regression and also the mechanics for prediction. 
 
@@ -56,7 +56,7 @@ look$coefficients[,1] + 2.0* c( -1,1)* look$coefficients[,2]
 ````
 
 The value 2.0 is just a handy approximation ( and easy to remember). The exact value is closer to 1.96 and in 
-general  for a M% confidence interval use the value
+general  for an M% confidence interval use the value
 
 ````
 qnorm( .5* (1- M/100), lower.tail=FALSE)
