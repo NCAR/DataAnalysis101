@@ -42,13 +42,14 @@ How many  words are in the  R dataset ```MobyDick```?**
 *(NOTE: 
 For finding the chapters, the book begins with some introduction before the chapters start and the chapters end with the final section being an "Epilogue".* 
 
-(3) Moby Dick is a white sperm whale that Captain Ahab is driven to hunt and kill. **Explain what the  following R code  does:**
+(3) Moby Dick is a white sperm whale that Captain Ahab is driven to hunt and kill. Assume that you have created a vector the same length as **MobyDick** that indicates the chapter for each word.
+**Explain what the  following R code  does:**
 
 ```
-tapply(MobyDick=="white", chapterInd, sum )
+tapply(MobyDick == "white", chapterInd, sum )
 ```
 
-**Now use this code and also one for the string Ahab to identify some chapters that might focus specifically on Ahab and the whale (as opposed to only one of these topics.)**
+**Now use this code and also one for the string Ahab to identify some chapters that might focus specifically on Ahab and the white whale (as opposed to only one of these topics.)**
 
 -
 
